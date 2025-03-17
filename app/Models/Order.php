@@ -10,7 +10,8 @@ class Order extends Model
     use HasFactory;
 
        protected $fillable=['qty','total','delivered_at','user_id','coupon_id'];
-       public function product()
+
+       public function products()
        {
         return $this->belongsToMany(Product::class);   
        }
@@ -19,6 +20,7 @@ class Order extends Model
        {
         return $this->belongsTo(User::class);   
        }
+       
        public function coupon()
        {
         return $this->belongsTo(Coupon::Class);   

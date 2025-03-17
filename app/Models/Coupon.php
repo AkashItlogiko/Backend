@@ -22,7 +22,7 @@ class Coupon extends Model
     // check if coupon is valid
     public function checkIFValid()
     {
-        if($this->valid_until >Carbon::now()){
+        if($this->valid_until > Carbon::now()){
             return true;
         }else{
             return false;
