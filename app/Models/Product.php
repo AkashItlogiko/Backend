@@ -24,11 +24,13 @@ class Product extends Model
        {
         return $this->belongsTo(Order::class);   
        }   
+
        public function reviews()
        {
         return $this->hasMany(Review::class)->with('user')
         ->where('approved',1)->latest();   
        }   
+       
        public function getRouteKeyName()
        {
         return 'slug';
