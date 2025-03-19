@@ -20,7 +20,7 @@ class AdminFactory extends Factory
     {
         return [
             //
-             'name' => 'admin',
+            'name' => 'admin',
             'email' => 'admin@email.com',
             'email_verified_at' => now(),
             'password' =>Hash::make('password'),
