@@ -10,13 +10,13 @@ use App\Http\Requests\AuthAdminRequest;
 
 class AdminController extends Controller
 {
-    /** 
+    /**
      * Fetch and display today yesterday this month this year orders.
     */
     public function index()
     {
         //get today's orders
-        
+
         $todayOrders= Order::whereDay('created_at',Carbon::today())->get();
         $yesterdayOrders= Order::whereDay('created_at',Carbon::yesterday())->get();
         $monthOrders= Order::whereMonth('created_at',Carbon::now()->month)->get();
@@ -28,8 +28,8 @@ class AdminController extends Controller
             'monthOrders'=>$monthOrders,
             'yearOrders'=>$yearOrders,
         ]);
-    } 
-    
+    }
+
 /**
  *Display the login from
  */
@@ -44,7 +44,7 @@ class AdminController extends Controller
     }
 
 /**
- *Auth the admin 
+ *Auth the admin
  */
 
     public function auth(AuthAdminRequest $request)
@@ -61,12 +61,12 @@ class AdminController extends Controller
                  return redirect()->route('admin.login')->with(['error' => 'These credentials do not match our records']);
             }
         }
-   
+
     }
 
 
 /**
- *Logout the admin 
+ *Logout the admin
  */
 
     public function logout( )

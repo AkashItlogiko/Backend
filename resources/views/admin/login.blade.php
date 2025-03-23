@@ -8,13 +8,13 @@
   </head>
   <body class="bg-light">
    <div class="container">
- <div class="row my-5"> 
+ <div class="row my-5">
       <div class="col-md-6 mx-auto">
         @session('error')
        <div class="alert alert-danger my-2">
-        @session('error')
-        
-      </div>    
+        {{session('error')}}
+
+      </div>
         @endsession
        <div class="card shadow-sm p-5">
         <div class="card-header bg-white text-canter d-flex justify-content-center">
@@ -35,7 +35,7 @@
    @enderror
    </div>
    <div class="form-floating mb-3">
-   <input type="password" class="form-control @error('password') is-invalid @enderror" 
+   <input type="password" class="form-control @error('password') is-invalid @enderror"
    name="password"
    id="floatingPassword" placeholder="Password">
    <label for="floatingPassword">Password</label>
