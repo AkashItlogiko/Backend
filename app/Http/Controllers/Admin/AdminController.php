@@ -40,7 +40,7 @@ class AdminController extends Controller
         {
             return view('admin.login');
         }
-        return redirect()->route(admin.index);
+        return redirect()->route('admin.index');
     }
 
 /**

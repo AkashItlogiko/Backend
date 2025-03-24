@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Admin;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -16,7 +17,8 @@ class AdminFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    protected $model = Admin::class;
+     public function definition(): array
     {
         return [
             //
@@ -25,6 +27,7 @@ class AdminFactory extends Factory
             'email_verified_at' => now(),
             'password' =>Hash::make('password'),
             'remember_token' => Str::random(10),
+
         ];
     }
 }
