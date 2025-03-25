@@ -28,7 +28,7 @@
                                 <strong>{{ $todayOrders->sum('total') }}</strong>
                             </div>
                         </div>
-                    </div>
+                    </div> 
 
                     <!-- Yesterday's Orders -->
                     <div class="col-md-6 mb-4">
