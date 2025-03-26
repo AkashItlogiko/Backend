@@ -11,18 +11,17 @@ Route::middleware('admin')->group(function () {
     Route::prefix('admin')->group(function(){
         Route::get('dashboard', [AdminController::class, 'index'])->name('admin.index');
         Route::post('logout', [AdminController::class, 'logout'])->name('admin.logout');
-        // Colors routes
-        Route::resource('colors', AdminColorController::class,[
-            'name'=>[
-               'index'=>'admin.colors.index',
-               'create'=>'admin.colors.create',
-               'store'=>'admin.colors.store',
-               'edit'=>'admin.colors.edit',
-               'update'=>'admin.colors.update',
-               'destroy'=>'admin.colors.destroy',
 
+        // Colors routes
+        Route::resource('colors', AdminColorController::class, [
+            'names' => [ // Use 'names' instead of 'name'
+                'index' => 'admin.colors.index',
+                'create' => 'admin.colors.create',
+                'store' => 'admin.colors.store',
+                'edit' => 'admin.colors.edit',
+                'update' => 'admin.colors.update',
+                'destroy' => 'admin.colors.destroy',
             ]
         ]);
     });
-
 });
