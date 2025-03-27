@@ -11,11 +11,12 @@
         <div class="row mt-2">
             <div class="col-md-12">
                 <div class="card-header bg-white">
-                    <h3 class="mt-2">Dashboard</h3>
+                    <h3 class="mt-2">Add Color</h3>
                     <hr>
                 </div>
                 <div class="card-body">
-                   <div class="col-md-6 mx-auto">
+                  <div class="row">
+                     <div class="col-md-6 mx-auto">
                     <form action="{{route('admin.colors.store') }}" method="post">
                         @csrf
                         <div class="form-floating mb-3">
@@ -24,7 +25,7 @@
                             class="form-control @error('name') is-invalid @enderror"
                             id="floatingInput"
                             name="name"
-                            placeholder="Name">
+                            placeholder="Name" value="{{old('name')}}">
                           <label for="floatingInput">Name</label>
                           @error('name')
                             <span class="invalid-feedback">
@@ -39,6 +40,7 @@
                         </div>
                       </form>
                    </div>
+                  </div>
                 </div>
             </div>
             </div>
