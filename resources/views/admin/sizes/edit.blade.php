@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Edit color
+    Edit size
 @endsection
 
 @section('content')
@@ -11,22 +11,22 @@
         <div class="row mt-2">
             <div class="col-md-12">
                 <div class="card-header bg-white">
-                    <h3 class="mt-2">Edit Color</h3>
+                    <h3 class="mt-2">Edit Size</h3>
                     <hr>
                 </div>
                 <div class="card-body">
                   <div class="row">
                      <div class="col-md-6 mx-auto">
-                    <form action="{{route('admin.colors.update',$color->id) }}" method="post">
+                    <form action="{{route('admin.sizes.update',$size->id) }}" method="post">
                         @csrf
-                        @method('PUT')
+                        @method("PUT")
                         <div class="form-floating mb-3">
                           <input
                             type="text"
                             class="form-control @error('name') is-invalid @enderror"
                             id="floatingInput"
                             name="name"
-                            placeholder="Name" value="{{$color->name,old('name')}}">
+                            placeholder="Name" value="{{$size->name,old('name')}}">
                           <label for="floatingInput">Name</label>
                           @error('name')
                             <span class="invalid-feedback">

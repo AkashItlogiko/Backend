@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Add new color
+    Add new size
 @endsection
 
 @section('content')
@@ -11,13 +11,13 @@
         <div class="row mt-2">
             <div class="col-md-12">
                 <div class="card-header bg-white">
-                    <h3 class="mt-2">Add Color</h3>
+                    <h3 class="mt-2">Add Size</h3>
                     <hr>
                 </div>
                 <div class="card-body">
                   <div class="row">
                      <div class="col-md-6 mx-auto">
-                    <form action="{{route('admin.colors.store') }}" method="post">
+                    <form action="{{route('admin.sizes.store') }}" method="post">
                         @csrf
                         <div class="form-floating mb-3">
                           <input
