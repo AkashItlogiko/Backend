@@ -11,7 +11,7 @@ class UpdateCouponRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,16 @@ class UpdateCouponRequest extends FormRequest
     {
         return [
             //
+                'name'=>'required|string|max:255|unique:coupons,name,'.$this->coupon->id,
+                'discount'=>'required',
+                 'valid_until'=>'required',
+        ];
+    }
+        public function messages()
+    {
+      return [
+            //
+                 'valid_until.required'=>'The coupon validity is required',
         ];
     }
 }
