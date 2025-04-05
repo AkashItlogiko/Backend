@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+ 
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,7 +24,7 @@ class AddCouponRequest extends FormRequest
     {
         return [
             //
-                'name'=>'required|string|max:255|unique:coupons',
+                'name'=>'required|max:255|unique:coupons',
                 'discount'=>'required',
                  'valid_until'=>'required',
         ];
