@@ -23,9 +23,9 @@
                           <input
                             type="text"
                             class="form-control @error('name') is-invalid @enderror"
-
                             name="name"
-                            placeholder="Name" value="{{old('name')}}">
+                            placeholder="Name"
+                             value="{{old('name')}}">
                           <label for="floatingInput">Name</label>
                           @error('name')
                             <span class="invalid-feedback">
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-floating mb-3">
                           <input
-                            type="text"
+                            type="number"
                             class="form-control @error('discount') is-invalid @enderror"
                             id="floatingInput"
                             name="discount"
@@ -53,7 +53,9 @@
                             class="form-control @error('valid_until') is-invalid @enderror"
                             id="floatingInput"
                             name="valid_until"
-                            placeholder="Validity" value="{{old('valid_until')}}">
+                            placeholder="Validity"
+                             min="{{\Carbon\Carbon::now()->addDays(1)}}"
+                            value="{{\Carbon\Carbon::now()->format('Y-m-d\Th:i:s')}}"
                           <label for="floatingInput">Validity</label>
                           @error('valid_until')
                             <span class="invalid-feedback">
