@@ -64,21 +64,23 @@
                           @enderror
                         </div>
 
-                                            <div class="form-floating mb-3">
-                        <select name="color_id[]" id="color_id"
-                                class="form-control @error('color_id') is-invalid @enderror" multiple>
-                            @foreach ($colors as $color)
-                            <option value="{{ $color->id }}">
-                                {{ $color->name }}
-                            </option>
-                            @endforeach
-                        </select>
-                        @error('color_id')
-                            <span class="invalid-feedback d-block">
-                            <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                        </div>
+                        <div class="mb-3">
+  <label for="color_id" class="my-2">Choose a Color</label>
+  <select name="color_id[]" id="color_id" class="form-control @error('color_id') is-invalid @enderror" multiple>
+    @foreach ($colors as $color)
+      <option @if (collect(old('color_id'))->contains($color->id)) selectd @endif value="{{ $color->id }}">
+        {{ $color->name }}
+      </option>
+    @endforeach
+  </select>
+
+  @error('color_id')
+    <span class="invalid-feedback">
+      <strong>{{ $message }}</strong>
+    </span>
+  @enderror
+</div>
+
 
                         <div class="mb-2">
                           <button type="submit" class="btn btn-sm btn-dark">
