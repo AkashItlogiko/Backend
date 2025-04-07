@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Color;
+use App\Models\Size;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;

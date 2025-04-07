@@ -52,22 +52,34 @@
                                                 </span>
                                             @endforeach
                                         </td>
-                                        <td>{{$color->qty}}</td>
-                                        <td>{{$color->price}}</td>
+                                        <td>{{$product->qty}}</td>
+                                        <td>{{$product->price}}</td>
                                         <td>
-                                            <img src="{{asset('storage/'.$color->image)}}" alt="Product Image" class="img-fluid">
+                                            <img src="{{asset($product->thumbnail)}}"
+                                            alt="{{$product->name}}"
+                                            class="img-fluid rounded"
+                                            width="60"
+                                            height="60">
                                         </td>
-                                        <td>{{$color->name}}</td>
-                                        <td>{{$color->name}}</td>
-                                        <td>{{$color->name}}</td>
                                         <td>
-                                             <a href="{{route('admin.colors.edit',$color->id)}}" class="btn btn-sm btn-warning">
+                                            @if($product->status)
+                                            <span class="badge  bg-success p-2">
+                                                   In Stcok
+                                            </span>
+                                            @else
+                                            <span class="badge  bg-danger p-2">
+                                                Out of Stock
+                                            </span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                             <a href="{{route('admin.products.edit',$product->id)}}" class="btn btn-sm btn-warning">
                                                    <i class="fas fa-edit"></i>
                                             </a>
-                                             <a href="#" onclick="deleteItem({{$color->id}})" class="btn btn-sm btn-danger">
+                                             <a href="#" onclick="deleteItem({{$product->id}})" class="btn btn-sm btn-danger">
                                                    <i class="fas fa-trash"></i>
                                             </a>
-                                            <form id="{{$color->id}}" action="{{route('admin.colors.destroy',$color->id)}}" method="post">
+                                            <form id="{{$product->id}}" action="{{route('admin.products.destroy',$product->id)}}" method="post">
                                                 @csrf
                                                 @method('Delete')
                                             </form>
