@@ -65,34 +65,87 @@
                         </div>
 
                         <div class="mb-3">
-  <label for="color_id" class="my-2">Choose a Color</label>
-  <select name="color_id[]" id="color_id" class="form-control @error('color_id') is-invalid @enderror" multiple>
-    @foreach ($colors as $color)
-      <option @if (collect(old('color_id'))->contains($color->id)) selectd @endif value="{{ $color->id }}">
-        {{ $color->name }}
-      </option>
-    @endforeach
-  </select>
+                            <label for="color_id" class="my-2">Choose a Color</label>
+                            <select name="color_id[]" id="color_id" class="form-control @error('color_id') is-invalid @enderror" multiple>
+                                @foreach ($colors as $color)
+                                    <option @if (collect(old('color_id'))->contains($color->id)) selected @endif value="{{ $color->id }}">
+                                        {{ $color->name }}
+                                    </option>
+                                @endforeach
+                            </select>
 
-  @error('color_id')
-    <span class="invalid-feedback">
-      <strong>{{ $message }}</strong>
-    </span>
-  @enderror
-</div>
+                            @error('color_id')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="size_id" class="my-2">Choose a Size</label>
+                            <select name="size_id[]" id="size_id" class="form-control @error('size_id') is-invalid @enderror" multiple>
+                                @foreach ($sizes as $size)
+                                    <option @if (collect(old('size_id'))->contains($size->id)) selected @endif value="{{ $size->id }}">
+                                        {{ $size->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                            @error('size_id')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="desc" class="my-2">Description</label>
+                            <textarea
+                                rows="10"
+                                class="form-control summernote @error('desc') is-invalid @enderror"
+                                id="floatingInput"
+                                name="desc"
+                                placeholder="Descriptions">{{ old('desc') }}</textarea>
+
+                            @error('desc')
+                                <span class="invalid-feedback">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+                        @php
+                            $imageFields = ['thumbnail', 'first_image', 'second_image', 'third_image'];
+                        @endphp
+
+                        @foreach ($imageFields as $field)
+                            <div class="mb-3">
+                                <label for="{{ $field }}">{{ ucfirst(str_replace('_', ' ', $field)) }}</label>
+                                <input
+                                    type="file"
+                                    class="form-control @error($field) is-invalid @enderror"
+                                    id="{{ $field }}"
+                                    name="{{ $field }}">
+
+                                @error($field)
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        @endforeach
 
                         <div class="mb-2">
-                          <button type="submit" class="btn btn-sm btn-dark">
-                            Submit
-                          </button>
+                            <button type="submit" class="btn btn-sm btn-dark">
+                                Submit
+                            </button>
                         </div>
-                      </form>
+                    </form>
                    </div>
                   </div>
                 </div>
             </div>
-            </div>
+        </div>
         </div>
         </div>
 @endsection
