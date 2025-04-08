@@ -154,7 +154,7 @@
         handleImageInputChanged('thumbnail','thumbnail_preview');
         handleImageInputChanged('first_image','first_image_preview');
         handleImageInputChanged('second_image','second_image_preview');
-        handleImageInputChanged('thumbnail_third','thumbnail_third_preview');
+        handleImageInputChanged('third_image','third_image_preview');
 
     </script>
 </html>
