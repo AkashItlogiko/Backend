@@ -159,7 +159,7 @@
                                     <input
                                         type="file"
                                         class="form-control @error('second_image') is-invalid @enderror"
-                                        id="second_image_preview"
+                                        id="second_image"
                                         name="second_image">
                                     @error('second_image')
                                         <span class="invalid-feedback">
@@ -189,7 +189,7 @@
                                     <input
                                         type="file"
                                         class="form-control @error('third_image') is-invalid @enderror"
-                                        id="third_image_preview"
+                                        id="third_image"
                                         name="third_image">
                                     @error('third_image')
                                         <span class="invalid-feedback">
