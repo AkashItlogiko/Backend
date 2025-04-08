@@ -27,7 +27,7 @@
                                     <th scope="col">Sizes</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Price</th>
-                                    <th scope="col">Image</th>
+                                    <th scope="col">Images</th>
                                     <th scope="col">Status</th>
 
                                     <th scope="col"></th>
@@ -37,11 +37,11 @@
                                 @foreach ($products as $key => $product)
                                     <tr>
                                         <th scope="row">{{$key +=1}}</th>
-                                        <td>{{$color->name}}</td>
+                                        <td>{{$product->name}}</td>
                                         <td>
                                             @foreach ($product->colors as $color)
                                                 <span class="badge bg-light text-dark">
-                                                    {{$color->name}}
+                                                    {{$product->name}}
                                                 </span>
                                             @endforeach
                                         </td>
@@ -55,11 +55,31 @@
                                         <td>{{$product->qty}}</td>
                                         <td>{{$product->price}}</td>
                                         <td>
-                                            <img src="{{asset($product->thumbnail)}}"
+                                            <div class="d-flex flex-column">
+                                         <img src="{{asset($product->thumbnail)}}"
                                             alt="{{$product->name}}"
                                             class="img-fluid rounded"
-                                            width="60"
-                                            height="60">
+                                            width="30"
+                                            height="30">
+
+                                            <img src="{{asset($product->first_image)}}"
+                                            alt="{{$product->name}}"
+                                            class="img-fluid rounded mb-1"
+                                            width="30"
+                                            height="30">
+
+                                            <img src="{{asset($product->second_image)}}"
+                                            alt="{{$product->name}}"
+                                            class="img-fluid rounded mb-1"
+                                            width="30"
+                                            height="30">
+
+                                            <img src="{{asset($product->third_image)}}"
+                                            alt="{{$product->name}}"
+                                            class="img-fluid rounded mb-1"
+                                            width="30"
+                                            height="30">
+                                            </div>
                                         </td>
                                         <td>
                                             @if($product->status)
