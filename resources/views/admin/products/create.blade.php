@@ -137,7 +137,7 @@
                                     <input
                                         type="file"
                                         class="form-control @error('first_image') is-invalid @enderror"
-                                        id="floatingInput"
+                                        id="first_image"
                                         name="first_image">
                                     @error('first_image')
                                         <span class="invalid-feedback">
@@ -146,12 +146,20 @@
                                     @enderror
                                 </div>
 
+                                 <div class="mt-2">
+                                   <img src="#" id="first_image_preview"
+                                   class="d-none img-fluid rounded mb-2"
+                                   width="100"
+                                   height="100"
+                                   >
+                                </div>
+
                                 <div class="mb-3">
                                     <label for="second_image">Second Image</label>
                                     <input
                                         type="file"
                                         class="form-control @error('second_image') is-invalid @enderror"
-                                        id="floatingInput"
+                                        id="second_image_preview"
                                         name="second_image">
                                     @error('second_image')
                                         <span class="invalid-feedback">
@@ -160,18 +168,42 @@
                                     @enderror
                                 </div>
 
+                                <div class="mt-2">
+                                   <img src="#" id="first_image_preview"
+                                   class="d-none img-fluid rounded mb-2"
+                                   width="100"
+                                   height="100"
+                                   >
+                                </div>
+
+                               <div class="mt-2">
+                                   <img src="#" id="second_image_preview"
+                                   class="d-none img-fluid rounded mb-2"
+                                   width="100"
+                                   height="100"
+                                   >
+                                </div>
+
                                 <div class="mb-3">
                                     <label for="third_image">Third Image</label>
                                     <input
                                         type="file"
                                         class="form-control @error('third_image') is-invalid @enderror"
-                                        id="floatingInput"
+                                        id="third_image_preview"
                                         name="third_image">
                                     @error('third_image')
                                         <span class="invalid-feedback">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                </div>
+
+                                <div class="mt-2">
+                                   <img src="#" id="third_image_preview"
+                                   class="d-none img-fluid rounded mb-2"
+                                   width="100"
+                                   height="100"
+                                   >
                                 </div>
 
                                 <div class="mb-2">
