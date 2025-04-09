@@ -62,23 +62,29 @@
                                             width="30"
                                             height="30">
 
+                                            @if($product->first_image)
                                             <img src="{{asset($product->first_image)}}"
                                             alt="{{$product->name}}"
                                             class="img-fluid rounded mb-1"
                                             width="30"
                                             height="30">
+                                            @endif
 
+                                             @if($product->second_image)
                                             <img src="{{asset($product->second_image)}}"
                                             alt="{{$product->name}}"
                                             class="img-fluid rounded mb-1"
                                             width="30"
                                             height="30">
+                                            @endif
 
+                                            @if($product->third_image)
                                             <img src="{{asset($product->third_image)}}"
                                             alt="{{$product->name}}"
                                             class="img-fluid rounded mb-1"
                                             width="30"
                                             height="30">
+                                            @endif
                                             </div>
                                         </td>
                                         <td>
@@ -92,14 +98,14 @@
                                             </span>
                                             @endif
                                         </td>
-                                        <td>
-                                             <a href="{{route('admin.products.edit',$product->id)}}" class="btn btn-sm btn-warning">
+                                        <td class="d-flex">
+                                             <a href="{{route('admin.products.edit',$product->slug)}}" class="btn btn-sm btn-warning">
                                                    <i class="fas fa-edit"></i>
                                             </a>
-                                             <a href="#" onclick="deleteItem({{$product->id}})" class="btn btn-sm btn-danger">
+                                             <a href="#" onclick="deleteItem({{$product->id}})" class="btn btn-sm btn-danger mx-1">
                                                    <i class="fas fa-trash"></i>
                                             </a>
-                                            <form id="{{$product->id}}" action="{{route('admin.products.destroy',$product->id)}}" method="post">
+                                            <form id="{{$product->id}}" action="{{route('admin.products.destroy',$product->slug)}}" method="post">
                                                 @csrf
                                                 @method('Delete')
                                             </form>
