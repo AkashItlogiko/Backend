@@ -46,4 +46,34 @@ class ProductController extends Controller
       ]);
     }
 
+    /**
+    * Filter products by size
+    */
+
+    public function filterProductsBySize(Size $size)
+    {
+      return ProductResource::collection(
+        $size->products()->with(['colors','size','reviews'])->latest()->get())->additional([
+        'colors' => Color::has('products')->get(),
+        'sizes' => Size::has('products')->get(),
+
+      ]);
+    }
+
+    /**
+    * Search for products by term
+    */
+
+    public function findProductsByTerm($searchTerm)
+    {
+      return ProductResource::collection(
+        Product::where('name','LIKE','%'.$searchTerm.'%')
+        ->with(['colors','size','reviews'])->latest()->get())->additional([
+        'colors' => Color::has('products')->get(),
+        'sizes' => Size::has('products')->get(),
+
+      ]);
+    }
+
+
 }
