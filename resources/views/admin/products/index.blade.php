@@ -41,7 +41,7 @@
                                         <td>
                                             @foreach ($product->colors as $color)
                                                 <span class="badge bg-light text-dark">
-                                                    {{$product->name}}
+                                                    {{$color->name}}
                                                 </span>
                                             @endforeach
                                         </td>
