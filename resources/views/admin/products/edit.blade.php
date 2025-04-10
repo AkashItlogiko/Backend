@@ -86,7 +86,7 @@
                                     <select name="size_id[]" id="size_id" class="form-control @error('size_id') is-invalid @enderror" multiple>
                                         @foreach ($sizes as $size)
                                             <option @if (collect(old('size_id'))->contains($size->id) || $product->sizes->contains($size->id)) selectd @endif value="{{ $size->id }}">
-                                                {{ $size->name }}Id aut nulla magnam .
+                                                {{ $size->name }}
                                             </option>
 
 
