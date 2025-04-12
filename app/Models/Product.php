@@ -13,24 +13,24 @@ class Product extends Model
 
        public function colors()
        {
-        return $this->belongsToMany(Color::class);   
+        return $this->belongsToMany(Color::class);
        }
 
        public function sizes()
        {
-        return $this->belongsToMany(Size::class);   
+        return $this->belongsToMany(Size::class);
        }
        public function orders()
        {
-        return $this->belongsTo(Order::class);   
-       }   
+        return $this->belongsTo(Order::class);
+       }
 
        public function reviews()
        {
         return $this->hasMany(Review::class)->with('user')
-        ->where('approved',1)->latest();   
-       }   
-       
+        ->where('approved',1)->latest();
+       }
+
        public function getRouteKeyName()
        {
         return 'slug';

@@ -17,10 +17,14 @@ class ProductController extends Controller
 
     public function index()
     {
-      return ProductResource::collection(Product:with(['colors','size','reviews'])->latest()->get())->additional([
+        $dip=ProductResource::collection(Product::with(['colors','sizes','reviews'])->latest()->get())->additional([
         'colors' => Color::has('products')->get(),
         'sizes' => Size::has('products')->get(),
-
+        ]);
+      return response()->json([
+        'status' => true,
+        'message' => 'Products fetched successfully',
+        'data' => $dip
       ]);
     }
     /*
