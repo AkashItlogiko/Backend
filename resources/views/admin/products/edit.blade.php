@@ -212,7 +212,7 @@
 
                                 <div class="mb-2">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="status" id="status"
+                                        <input class="form-check-input" type="radio" value="1" name="status" id="status"
                                         @checked($product->status)
                                         >
                                         <label class="form-check-label" for="status">
@@ -220,7 +220,7 @@
                                         </label>
                                         </div>
                                         <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="status" id="status">
+                                        <input class="form-check-input" type="radio" value="0" name="status" id="status">
                                         @checked(!$product->status)
                                         <label class="form-check-label" for="status">
                                             Out of Stock
