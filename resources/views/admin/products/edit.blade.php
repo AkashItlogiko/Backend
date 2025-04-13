@@ -211,6 +211,23 @@
                                 </div>
 
                                 <div class="mb-2">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status"
+                                        @checked($product->status)
+                                        >
+                                        <label class="form-check-label" for="status">
+                                            In Stock
+                                        </label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status">
+                                        @checked(!$product->status)
+                                        <label class="form-check-label" for="status">
+                                            Out of Stock
+                                        </label>
+                                        </div>
+                                    </div>
+                                <div class="mb-2">
                                     <button type="submit" class="btn btn-sm btn-dark">
                                         Submit
                                     </button>
