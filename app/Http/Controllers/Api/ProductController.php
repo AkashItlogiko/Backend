@@ -43,7 +43,7 @@ class ProductController extends Controller
 
     public function filterProductsByColor(Color $color)
     {
-      return ProductResource::collection($color->products()->with(['colors','size','reviews'])->latest()->get())->additional([
+      return ProductResource::collection($color->products()->with(['colors','sizes','reviews'])->latest()->get())->additional([
         'colors' => Color::has('products')->get(),
         'sizes' => Size::has('products')->get(),
 
@@ -57,7 +57,7 @@ class ProductController extends Controller
     public function filterProductsBySize(Size $size)
     {
       return ProductResource::collection(
-        $size->products()->with(['colors','size','reviews'])->latest()->get())->additional([
+        $size->products()->with(['colors','sizes','reviews'])->latest()->get())->additional([
         'colors' => Color::has('products')->get(),
         'sizes' => Size::has('products')->get(),
 
@@ -72,7 +72,7 @@ class ProductController extends Controller
     {
       return ProductResource::collection(
         Product::where('name','LIKE','%'.$searchTerm.'%')
-        ->with(['colors','size','reviews'])->latest()->get())->additional([
+        ->with(['colors','sizes','reviews'])->latest()->get())->additional([
         'colors' => Color::has('products')->get(),
         'sizes' => Size::has('products')->get(),
 
