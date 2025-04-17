@@ -33,7 +33,7 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        if(!product){
+        if(!$product){
             abort(404);
         }
       return ProductResource::make(
