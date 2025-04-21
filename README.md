@@ -13,5 +13,3 @@
 ## php artisan make:model Review -m
 
 ## php artisan make:model Order -m
-
-## test
