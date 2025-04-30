@@ -52,7 +52,7 @@ class UserController extends Controller
     {
         $request->user()->currentAccessToken()->delete();
         return response()->json([
-            'message' => 'Logged out successfully'
+            'message' => 'Log-out successfully'
         ]);
     }
       /**
@@ -77,7 +77,7 @@ class UserController extends Controller
             $request->user()->update([
                 'profile_image' =>  'storage/images/users/'.$profile_image_name
             ]);
-            //return the response  
+            //return the response
             return response()->json([
                 'message' => 'Profile image updated successfully',
                 'user' => UserResource::make($request->user())
