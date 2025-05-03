@@ -17,7 +17,8 @@ Route::middleware('auth:sanctum')->group(function() {
        });
        Route::post('user/logout',[UserController::class,'logout']);
        Route::put('user/profile/update',[UserController::class,'UpdateUserProfile']);
-
+       //coupon routes
+       Route::post('apply/coupon',[CouponController::class,'applyCoupon']);
     });
 
 //products routes
@@ -29,5 +30,4 @@ Route::get('product/{product}/show',[ProductController::class, 'show']);
 //user routes
 Route::post('user/register',[UserController::class,'store']);
 Route::post('user/login',[UserController::class,'auth']);
-//coupon routes
-Route::post('apply/coupon',[CouponController::class,'applyCoupon']);
+
