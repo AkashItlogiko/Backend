@@ -52,14 +52,14 @@ class User extends Authenticatable
 
     public function orders()
        {
-        return $this->hasMany(Order::class)->with('products')->latest();   
-       } 
+        return $this->hasMany(Order::class)->with('products')->latest();
+       }
 
        public function image_path()
        {
         if($this->profile_image)
         {
-          return asset('storage/images/users/'.$this->profie_image); 
+            return asset($this->profile_image);
         }else{
             return 'https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_640.png';
         }
